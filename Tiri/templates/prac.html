@@ -1,0 +1,16 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>현재시간</title>
+    <script language="javascript">
+        function time(){
+            var time= new Date(); //시간받기위해서 new date
+            document.getElementById("now").innerHTML=time.getHours()+"시"+time.getMinutes()+"분"+time.getSeconds()+"초";
+            setInterval("time()",1000);     //1초 지난후 time()실행
+        }
+    </script>
+</head>
+<body onload="time()">
+  <h2> 현재 시간: <span id="now"></span></h2>
+</body>
+</html>

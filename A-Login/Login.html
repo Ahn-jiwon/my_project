@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Login Page</title>
+        <!--<bootstrap css>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <!-- JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- 쿠키 사용을 위한 Jquery-cookie 임포트 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Roboto');
+            body{
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .auth__header {
+                padding: 13vh 1rem calc(11vh + 35px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #f0f0f0;
+                background-image: linear-gradient(#3280e4, #584dc3);
+                background-size: cover;
+                background-position: center center;
+                position: relative;
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+            }
+            .auth__header:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+            .auth__logo {
+                position: relative;
+                z-index: 18;
+                background: #fff;
+                padding: 10px;
+                border-radius: 50%;
+                box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15);
+                overflow: hidden;
+            }
+            .auth__body {
+                padding-bottom: 2rem;
+            }
+            .auth__form {
+                min-width: 280px;
+                max-width: 340px;
+                margin: auto;
+                margin-top: -40px;
+                padding: 0 10px;
+                position: relative;
+                z-index: 9;
+            }
+            .auth__form_body {
+                padding: 0.7rem 1.5rem 35px;
+                border-radius: 0.5rem;
+                background: #fff;
+                border: 1px solid #eee;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+            .auth__form_title {
+                font-size: 1.3rem;
+                text-align: center;
+                text-transform: uppercase;
+                margin-bottom: 1.2rem;
+            }
+            .auth__form_actions {
+                text-align: center;
+                padding: 0 2rem;
+                margin-top: -25px;
+            }
+            .auth__form_actions .btn {
+                border-radius: 30px;
+                box-shadow: 0 2px 12px rgba(50, 128, 228, 0.5);
+            }
+
+        </style>
+
+        <script>
+          // ['쿠키'라는 개념에 대해 알아봅시다]
+          // 로그인을 구현하면, 반드시 쿠키라는 개념을 사용합니다.
+          // 페이지에 관계없이 브라우저에 임시로 저장되는 정보입니다. 키:밸류 형태(딕셔너리 형태)로 저장됩니다.
+          // 쿠키가 있기 때문에, 한번 로그인하면 네이버에서 다시 로그인할 필요가 없는 것입니다.
+          // 브라우저를 닫으면 자동 삭제되게 하거나, 일정 시간이 지나면 삭제되게 할 수 있습니다.
+          function login(){
+            $.ajax({
+              type: "POST",
+              url: "/api/login",
+              data: { id_give:$('#userid').val(), pw_give:$('#userpw').val() },
+              success: function(response){
+                if (response['result'] == 'success'){
+                  // 로그인이 정상적으로 되면, 토큰을 받아옵니다.
+                  // 이 토큰을 mytoken이라는 키 값으로 쿠키에 저장합니다.
+                  $.cookie('mytoken', response['token']);
+
+                  alert('로그인 완료!')
+                  window.location.href='/'
+                } else{
+                  // 로그인이 안되면 에러메시지를 띄웁니다.
+                  alert(response['msg'])
+                }
+              }
+            })
+          }
+
+        </script>
+    </head>
+    <body>
+        <div class="auth">
+            <div class="auth__header">
+                <div class="auth__logo">
+                    <img height="90" src="https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/083/full/EGH_VueJS_Final.png" alt="">
+                </div>
+            </div>
+            <div class="auth__body">
+                <form class="auth__form" autocomplete="off">
+                    <div class="auth__form_body">
+                        <h3 class="auth__form_title">Sign in</h3>
+                        <div>
+                            <div class="form-group">
+                                <label for="userid" class="text-uppercase small">이메일</label>
+                                <input type="email" id="userid" class="form-control" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="userpw"  class="text-uppercase small">Password</label>
+                                <input type="password" id="userpw" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auth__form_actions">
+                        <button class="btn btn-primary btn-lg btn-block">
+                            로그인
+                        </button>
+                        <div class="mt-2">
+                            <a href="#" class="small text-uppercase">
+                                회원가입
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>A-Custom Tiri 페이지</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Stylish&amp;display=swap" rel="stylesheet">
+         <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <style type="text/css">
+            * {
+                /*font-family: 'Stylish', sans-serif;*/
+                /*margin: auto;*/
+                font-family: 'Do Hyeon', sans-serif;
+                /*width: 500px;*/
+            }
+            .jumbotron{
+                 width: 800px;
+                margin: 20px auto;
+            }
+
+            #post-box {
+                width: 400px;
+                margin: 20px auto;
+                padding: 50px;
+                border: black solid;
+                border-radius: 5px;
+            }
+
+        </style>
+        <script>
+            function openClose() {
+                // id 값 post-box의 display 값이 block 이면
+                if ($('#post-box').css('display') == 'block') {
+                    // post-box를 가리고
+                    $('#post-box').hide();
+                } else {
+                    // 아니면 post-box를 보여주기
+                    $('#post-box').show();
+                }
+            }
+            $(document).ready(function() {
+                watch()
+            })
+            function watch() {
+
+                $.ajax({
+                    type: "GET",
+                    url: "",
+                    data: {},
+                    success: function (response) {
+
+                    }
+                })
+            }
+
+                    function click2() {
+                    alert('경고!');
+                }
+
+        </script>
+        <h1 id="clock" style="color:gray;">00:00</h1>
+
+
+        <script>
+
+            var clockTarget = document.getElementById("clock");
+
+            function clock() {
+                var date = new Date();
+
+                // date Object를 받아오고
+                var month = date.getMonth();
+
+                // 달을 받아옵니다
+                var clockDate = date.getDate();
+
+                // 몇일인지 받아옵니다
+                var day = date.getDay();
+
+                // 요일을 받아옵니다.
+                var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+                // 요일은 숫자형태로 리턴되기때문에 미리 배열을 만듭니다.
+                var hours = date.getHours();
+
+                // 시간을 받아오고
+                var minutes = date.getMinutes();
+
+                // 분도 받아옵니다.
+                var seconds = date.getSeconds();
+
+                // 초까지 받아온후
+                clockTarget .innerText = `${month+1}월 ${clockDate}일 ${week[day]}요일` +
+
+                    `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes }`  : minutes }:${seconds < 10 ? `0${seconds }`  : seconds }`;
+
+                // 월은 0부터 1월이기때문에 +1일을 해주고
+
+                // 시간 분 초는 한자리수이면 시계가 어색해보일까봐 10보다 작으면 앞에0을 붙혀주는 작업을 3항연산으로 했습니다.
+            }
+
+
+
+            function init() {
+
+                clock();
+
+// 최초에 함수를 한번 실행시켜주고
+                setInterval(clock, 1000);
+
+// setInterval이라는 함수로 매초마다 실행을 해줍니다.
+
+// setInterval은 첫번째 파라메터는 함수이고 두번째는 시간인데 밀리초단위로 받습니다. 1000 = 1초
+
+            }
+
+            init();
+</script>
+
+
+    </head>
+    <body onload="time1()">
+<!--        버튼 5개 만들기(지상파, 종합, 영화, 예능, 스포츠)-->
+        <!-- 1. 캔버스 태그 삽입 -->
+<!--        <canvas id="p-canvas" width="1800" height="100"></canvas>-->
+<!--        <script>-->
+<!--            // 2. 캔버스요소 가져오기-->
+<!--            var ele_canvas = document.getElementById("p-canvas");-->
+<!--            // 3. 드로잉용 컨텍스트 생성-->
+<!--            var context_canvas = ele_canvas.getContext("2d");-->
+<!--            // 4. 생성한 컨텍스트를 이용해서 드로잉하기-->
+<!--            context_canvas.strokeStyle = "skyblue"; // border(선)색-->
+<!--            context_canvas.lineWidth = "20";-->
+<!--            context_canvas.fillStyle = "skyblue"; // 면색상-->
+
+<!--            //드로잉-->
+<!--            context_canvas.rect(20, 20, 200, 200); // 도형-->
+<!--            context_canvas.stroke(); // 선-->
+<!--            context_canvas.fill(); // 면색-->
+<!--        </script>-->
+        <div class="wrap">
+                <div class="jumbotron">
+                    <h1 class="display-4">하이 Tiri, 오늘은 뭘 볼까?</h1>
+                    <p class="lead">Tiri: 관심있는 걸 골라봐!</p>
+                    <hr class="my-4">
+
+                </div>
+
+            <div class="options">
+                <p>
+                    <a href="#"><button onclick="click2()" class="btn btn-primary" id='main' role="button">방송3사</button></a>
+                <p>
+                <a href="#"> <button onclick="click2()" class="btn btn-success"  id="news" role="button">뉴스</button></a>
+                <a href="#"><button onclick="click2()" class="btn btn-danger"  id='movie' role="button">영화</button></a>
+                <p>
+                <a href="#"><button onclick="click2()" class="btn btn-light"  id="sports" role="button">스포츠</button></a>
+                <a href="#"><button onclick="click2()" class="btn btn-warning"  id="entertain" role="button">예능</button></a>
+            </div>
+        </div>
+
+       </body>
+</html>

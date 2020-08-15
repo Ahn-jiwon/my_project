@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+         <script type="text/javascript"> /* 검색옵션 모듈 생성 */ var oNXSearchOption = new nhn.SearchOption($('_search_option_btn'), $('snb'), {open:false}); </script><script> /* 검색옵션 - 상세검색 - !!상세 옵션이 있는 탭에서만 생성해주세요. */ new nhn.SearchOption.Detail( $("_nx_option_detail"), { s_base: "서버시간", b_or: false, a_exact: [], a_include: [], a_exclude: [] } ); </script><div class="op_calendar _date_option_calendar_layer"> <div class="h_cal"> <strong class="calendar-title">2014.04</strong> <a class="bt_pv2 calendar-btn-prev-year" href="#" onclick="return tCR('a=fno.datecalendercheck');" title="이전 년도"><span>이전 년도</span></a> <a class="bt_pv calendar-btn-prev-mon" href="#" onclick="return tCR('a=fno.datecalendercheck');" title="이전 달"><span>이전 달</span></a> <a class="bt_nx calendar-btn-next-mon" href="#" onclick="return tCR('a=fno.datecalendercheck');" title="다음 달"><span>다음 달</span></a> <a class="bt_nx2 calendar-btn-next-year" href="#" onclick="return tCR('a=fno.datecalendercheck');" title="다음 년도"><span>다음 년도</span></a> </div> <div class="cal_date"> <table cellspacing="0" cellpadding="0"> <caption class="blind">기간 설정 달력</caption> <thead> <tr> <th scope="col">일</th> <th scope="col">월</th> <th scope="col">화</th> <th scope="col">수</th> <th scope="col">목</th> <th scope="col">금</th> <th scope="col">토</th> </tr> </thead> <tbody> <tr class="calendar-week"> <td> <a href="#" class="calendar-date" onclick="return tCR('a=fno.datecalendercheck');"></a> </td> <td> <a href="#" class="calendar-date" onclick="return tCR('a=fno.datecalendercheck');"></a> </td> <td> <a href="#" class="calendar-date" onclick="return tCR('a=fno.datecalendercheck');"></a> </td> <td> <a href="#" class="calendar-date" onclick="return tCR('a=fno.datecalendercheck');"></a> </td> <td> <a href="#" class="calendar-date" onclick="return tCR('a=fno.datecalendercheck');"></a> </td> <td> <a href="#" class="calendar-date" onclick="return tCR('a=fno.datecalendercheck');"></a> </td> <td> <a href="#" class="calendar-date" onclick="return tCR('a=fno.datecalendercheck');"></a> </td> </tr> </tbody> </table> </div> <p class="today _footer"><span>오늘날짜</span><a href="#" class="_today" onclick="return tCR('a=fno.datecalendertoday');"></a> </p> <a class="ly_close _close" href="#" onclick="return tCR('a=fno.datecalenderclose');"> <img src="https://ssl.pstatic.net/sstatic/keypage/lifesrch/sports/img2010/bt_ly_close.gif" width="11" height="11" alt="닫기"> </a> </div><script> /* 검색옵션 - 기간 - !!기간 옵션이 있는 탭에서만 생성해주세요.!! */ $Fn(function () { new nhn.SearchOption.Date( $("_nx_option_date"), { /* 적용 버튼 혹은 enter 키 입력시 호출되는 함수 */ fSubmit: function(p) { if (p) { nx_searchOptionSelect('p', 'direct'); } else { return tCR('a=opt.periodinputapply'); } }, htCalendar: { /* 시작일을 나타내는 캘린더의 초기 설정될 날짜 값 */ htStartDate: {nYear: start_year,nMonth: start_month,nDate: start_day}, /* 종료일을 나타내는 캘린더의 초기 설정될 날짜 값 */ htEndDate: {nYear: end_year,nMonth: end_month,nDate: end_day}, /* 유효한 날짜 범위중 최소 날짜 (예. 1990.1.1) */ htMinDate: {nYear: 1990,nMonth: 1,nDate: 1}, /* 유효한 날짜 범위중 최대 날짜 (예. 오늘날자) */ htMaxDate: {nYear: headerfooter_time_year,nMonth: headerfooter_time_month,nDate: headerfooter_time_day}, /* 오늘날자 */ htTodayDate: {nYear: headerfooter_time_year,nMonth: headerfooter_time_month,nDate: headerfooter_time_day,nDay: headerfooter_time_wday} } } ); }).attach(window, "load") ; </script><script type="text/javascript"> $Fn(function (we) { var el = we.element, elLnbMore = $("_nx_lnb_more"); if (el != elLnbMore && !$Element(elLnbMore).isParentOf(el)) { $Element('_nx_lnb_more').removeClass('more_on'); } }).attach(document, "click"); </script></div><script type="text/javascript"> var nx_location_rcode = "09305102" ; </script><div id="container" role="main"> <div id="content" class="pack_group"> <h1 class="blind">서버시간 통합검색 결과</h1> <div id="main_pack" class="main_pack"><script type='text/javascript'>var nx_cr_area_info=[{ n:"pwl_nop",r:1 },{ n:"web_all",r:2 },{ n:"nco_xgb",r:3 },{ n:"ldc_btm",r:4 },{ n:"blg_1st",r:5 },{ n:"pst_bas",r:6 },{ n:"app_bas",r:7 },{ n:"nco_x0n",r:8 },{ n:"caf_bas",r:9 }];</script><script crossorigin="anonymous" src="https://ssl.pstatic.net/adimg3.search/adpost/js/event_tracker.js?o=search"></script>
+        <script type="text/javascript">
+            if (typeof NAVER === "undefined") {
+              NAVER = {};
+            }
+            if (typeof NAVER.SEARCH_AD === "undefined") {
+              NAVER.SEARCH_AD = {};
+            }
+            NAVER.SEARCH_AD.showTooltip = function (element) {
+              var parentElement = $Element(element).parent();
+              var timerAttribute = parentElement.attr("data-timer");
+              if (timerAttribute) {
+                clearTimeout(timerAttribute);
+                parentElement.attr("data-timer", "");
+              }
+              var tooltipElement = $Element(parentElement.query("._tooltip"));
+              tooltipElement.css("display", "inline");
+            };
+            NAVER.SEARCH_AD.hideTooltip = function (element) {
+              var parentElement = $Element(element).parent();
+              if (!parentElement.attr("data-timer")) {
+                var timer = setTimeout(function () {
+                  var tooltipElement = $Element(parentElement.query("._tooltip"));
+                  tooltipElement.css("display", "none");
+                }, 100);
+                parentElement.attr("data-timer", timer);
+              }
+            };
+
+            var _elAdIndLayerPl = null;
+            var _elAdIndLayerTimePl;
+            var _elDscNcautionPl = null;
+
+            function adInfoShowPl(el) {
+              if (_elAdIndLayerPl) {
+                adInfoHidePl();
+                return false;
+              } else {
+                if (!_elDscNcautionPl) {
+                  _elDscNcautionPl = $Element(el).parent();
+                }
+                _elDscNcautionPl._element.style.zIndex = 121;
+                _elAdIndLayerPl = $Element(el).next();
+                _elAdIndLayerPl.show();
+                _elAdIndLayerTimePl = (new Date()).getTime();
+                return true;
+              }
+            }
+
+            function adInfoHidePl() {
+              if (_elAdIndLayerPl) {
+                if (_elDscNcautionPl) {
+                  _elDscNcautionPl._element.style.zIndex = 0;
+                }
+                _elAdIndLayerPl.hide();
+                _elAdIndLayerPl = null;
+              }
+            }
+
+            function adInfoHideClickEventHandlerPl(e) {
+              if (_elAdIndLayerTimePl + 200 < (new Date()).getTime()) adInfoHidePl();
+            }
+
+            document.body[window.addEventListener ? 'addEventListener' : 'attachEvent'](window.addEventListener ? "click" : "onclick", adInfoHideClickEventHandlerPl, false);
+          </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
