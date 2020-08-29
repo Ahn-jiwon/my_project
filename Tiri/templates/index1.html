@@ -3,7 +3,7 @@
   <head>
 
     <!-- Webpage Title -->
-    <title>Hello, world!</title>
+    <title>선택 페이지</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -19,6 +19,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <style>
+      .btn btn-danger{
+        text-align: center;
+      }
+      .btn btn-primary{
+        text-align: center;
+      }
+    </style>
     <script>
       // 로딩 후 바로 실행
       $(document).ready(function(){
@@ -41,9 +49,11 @@
           data: {},
           success: function(response){
             if (response['result'] == 'success'){
+
               // 올바른 결과값을 받으면 nickname을 입력해줍니다.
               $('#nickname').text(response['nickname'])
             } else{
+
               // 에러가 나면 메시지를 띄우고 로그인 창으로 이동합니다.
               alert(response['msg'])
               window.location.href='/login'
@@ -58,16 +68,26 @@
         alert('로그아웃!')
         window.location.href='/login'
       }
+      function movetiri(){
+        alert('Tiri 페이지로 이동합니다.')
+        window.location.href='/tiris'
+      }
+      function movenats(){
+        alert('Nats 페이지로 이동합니다.')
+        window.location.href='https://www.mlb.com/nationals/schedule'
+      }
 
     </script>
 
   </head>
   <body>
-    <p>
-      <h1>로그인하고 30초 동안만 볼 수 있는 페이지입니다.</h1>
-      <h1>계속 새로고침 해보세요</h1>
-    </p>
-    <h5>나의 닉네임은: <span id="nickname"></span></h5>
-    <button type="button" class="btn btn-danger" onclick="logout()">로그아웃하기</button>
+    <ul class="list-group">
+      <li class="list-group-item active"><h1>환영합니다!페이지 버튼을 눌러주세요:)</h1></li>
+      <li class="list-group-item"><h2>*30초 안에 버튼을 누르지 않을 시 자동으로 로그아웃이 됩니다.*</h2></li>
+      <li class="list-group-item"><h5>My Nickname: <span id="nickname"></span></h5></li>
+    </ul>
+    <button type="button" class="btn btn-success" onclick="logout()">로그아웃 </button>
+    <button type="button" class="btn btn-primary" onclick="movetiri()">Tiri</button>
+    <button type="button" class="btn btn-danger" onclick="movenats()">Nats</button>
   </body>
 </html>
